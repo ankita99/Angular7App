@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AppDataService } from '../app-data.service';
+import { Employee } from '../classes/employee';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employees',
@@ -7,18 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeesComponent implements OnInit {
 
-    employees=[];
-  constructor() { }
+  employees: Employee[];
+  constructor(private appDataService: AppDataService, private router: Router) { }
 
   ngOnInit() {
     this.getEmployees();
   }
 
   getEmployees(){
-    this.employees=[
-        {id:1,name:"Ankita"},
-        {id:2,name:"Ankita1"},
-        {id:3,name:"Ankita2"}
-]
+    this.appDataService.getEmployees()
+    .subscribe(
+       data =>this.employees = data
+    )
+  }
+  onclick(){
+      console.log("test");
+      this.router.navigate(['/employeeDetails']);
   }
 }

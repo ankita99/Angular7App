@@ -1,6 +1,9 @@
 <p>
   employees works!
 </p>
-<div *ngFor="let employee of employees">
-    <span>{{employee.id}}  {{employee.name}}</span>
-</div>
+<ul >
+    <li *ngFor="let employee of employees">
+            <span (click)="onclick()">{{employee.name}}</span>
+    </li>
+
+</ul>

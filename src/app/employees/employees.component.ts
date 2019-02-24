@@ -23,8 +23,8 @@ export class EmployeesComponent implements OnInit {
        data =>this.employees = data
     )
   }
-  onclick(){
+  onclick(employee: Employee){
       console.log("test");
-      this.router.navigate(['/employeeDetails']);
+      this.router.navigate(['/employeeDetails', employee.id]);
   }
 }

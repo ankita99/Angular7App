@@ -1,21 +1,31 @@
-pipeline {
-   agent any
 
-   stages {
-      stage('NPM Setup') {
-      steps {
-         sh 'npm install'
-      }
-   }
-   }
+pipeline
+{
+    agent any
 
-   stages {
-      stage('NPM Build') {
-      steps {
-         sh 'npm build'
-      }
-   }
- }
+    environment
+    {
+        publish_version = ''
+    }
 
+    stages
+    {
+
+        stage ("Initialise release config")
+        {
+             steps
+            {
+                script
+                {
+                    sh "npm install"
+                    sh "npm build"
+
+                }
+                 echo "This is the : "
+            }
+
+        }
+
+
+    }
 }
-

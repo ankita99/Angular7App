@@ -7,6 +7,7 @@ pipeline {
          sh 'npm install'
       }
    }
+   }
 
    stages {
       stage('NPM Build') {
@@ -15,6 +16,6 @@ pipeline {
       }
    }
  }
-}
+
 }
 

@@ -21,7 +21,7 @@ pipeline
                     sh "npm build"
 
                 }
-                 echo "This is the : "
+                 echo "Test"
             }
 
         }
